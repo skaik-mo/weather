@@ -28,10 +28,13 @@ import com.example.weather.core.presenter.spacer.vertical.VerticalSpacer12
 import com.example.weather.ui.theme.UrbanistFontFamily
 
 @Composable
-fun CurrentWeatherDetails() {
+fun CurrentWeatherDetails(
+    modifier: Modifier = Modifier,
+) {
     val colors = MaterialTheme.colorScheme
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
     ) {
         CurrentConditionDisplay(colors)
         VerticalSpacer12()
