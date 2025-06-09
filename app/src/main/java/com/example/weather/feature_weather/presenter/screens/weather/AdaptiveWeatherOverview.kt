@@ -17,7 +17,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.unit.dp
 import com.example.weather.R
 import com.example.weather.core.presenter.extensions.animatePlacement
+import com.example.weather.core.presenter.extensions.dropShadow
 import com.example.weather.core.presenter.extensions.toPainter
+import com.example.weather.ui.theme.Color1D2646
 
 @Composable
 fun AdaptiveWeatherOverview(isWeatherAreaScrolledDown: Boolean) {
@@ -63,5 +65,11 @@ private fun WeatherOverviewDisplay(
         painter = R.drawable.img_mainly_clear.toPainter(),
         contentDescription = "Weather",
         modifier = modifierImage
+            .dropShadow(
+                color = Color1D2646.copy(alpha = 0.25f),
+                offsetX = -(21).dp,
+                offsetY = 40.dp,
+                blurRadius = 100.dp
+            )
     )
 }
