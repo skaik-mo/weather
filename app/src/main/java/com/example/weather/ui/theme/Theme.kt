@@ -1,14 +1,10 @@
 package com.example.weather.ui.theme
 
-import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -19,9 +15,9 @@ private val DarkColorScheme = darkColorScheme(
     onBackground = Color0D0C19,
     surface = ColorFFFFFF,
     onSurface = ColorFFFFFF,
+    surfaceContainer = Color060414,
     surfaceVariant = ColorFFFFFF.copy(0.87f),
-    scrim = ColorFFFFFF.copy(0.24f)
-
+//    scrim = ColorFFFFFF.copy(0.24f)
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -33,6 +29,7 @@ private val LightColorScheme = lightColorScheme(
     onBackground = ColorFFFFFF,
     surface = Color323232,
     onSurface = Color060414,
+    surfaceContainer = ColorFFFFFF,
     surfaceVariant = Color060414.copy(0.6f),
 
     /* Other default colors to override
