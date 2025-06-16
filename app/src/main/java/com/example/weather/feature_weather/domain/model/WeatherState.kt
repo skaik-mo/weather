@@ -1,0 +1,33 @@
+package com.example.weather.feature_weather.domain.model
+
+enum class WeatherState(val description: String) {
+    ClearSky("Clear sky"),
+    MainlyClear("Mainly clear"),
+    PartlyCloudy("Partly cloudy"),
+    Overcast("Overcast"),
+    Fog("Fog"),
+    DepositingRimeFog("Depositing rime fog"),
+    DrizzleLight("Drizzle light intensity"),
+    DrizzleModerate("Drizzle moderate intensity"),
+    DrizzleDense("Drizzle dense intensity"),
+    FreezingDrizzleLight("Freezing drizzle light intensity"),
+    FreezingDrizzleDense("Freezing drizzle dense intensity"),
+    RainSlight("Slight rain intensity"),
+    RainModerate("Moderate rain intensity"),
+    RainHeavy("Heavy rain intensity"),
+    FreezingRainLight("Light freezing rain intensity"),
+    FreezingRainHeavy("Heavy freezing rain intensity"),
+    SnowSlight("Slight snow fall intensity"),
+    SnowModerate("Moderate snow fall intensity"),
+    SnowHeavy("Heavy snow fall intensity"),
+    SnowGrains("Snow grains"),
+    RainShowerSlight("Slight rain showers"),
+    RainShowerModerate("Moderate rain showers"),
+    RainShowerViolent("Violent rain showers"),
+    SnowShowerSlight("Slight snow showers"),
+    SnowShowerHeavy("Heavy snow showers"),
+    Thunderstorm("Thunderstorm"),
+    ThunderstormWithSlightHail("Thunderstorm with slight hail"),
+    ThunderstormWithHeavyHail("Thunderstorm with heavy hail"),
+    Unknown("Unknown")
+}

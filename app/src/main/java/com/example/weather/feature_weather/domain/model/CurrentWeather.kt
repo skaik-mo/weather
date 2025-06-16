@@ -1,14 +1,13 @@
 package com.example.weather.feature_weather.domain.model
 
 data class CurrentWeather(
-    val weatherCode: Int,
-    val currentTemperature: Float,
-    val maxTemperature: Float,
-    val minTemperature: Float,
-    val apparentTemperature: Float,
-    val windSpeedValue: Float,
-    val relativeHumidity: Int,
-    val totalRain: Int,
-    val uvIndexValue: Int,
-    val meanSeaLevelPressure: Float
+    val weatherState: WeatherState,
+    val currentTemperature: String,
+    val apparentTemperature: String,
+    val windSpeed: String,
+    val humidity: String,
+    val rain: String,
+    val uvIndex: String,
+    val pressure: String,
+    val isDay: Boolean,
 )
