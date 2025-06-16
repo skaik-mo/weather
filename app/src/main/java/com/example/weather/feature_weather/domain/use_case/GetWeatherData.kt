@@ -7,7 +7,7 @@ import com.example.weather.feature_weather.domain.repository.WeatherRepository
 class GetWeatherData(
     val repository: WeatherRepository
 ) {
-    fun getWeatherData(location: Location): WeatherInfo {
+    suspend fun getWeatherData(location: Location): WeatherInfo {
         return repository.getWeather(latitude = location.latitude, longitude = location.longitude)
     }
 }
