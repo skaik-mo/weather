@@ -1,4 +1,5 @@
 import org.gradle.kotlin.dsl.implementation
+import org.jetbrains.kotlin.gradle.idea.proto.com.google.protobuf.SourceCodeInfoKt.location
 
 plugins {
     alias(libs.plugins.android.application)
@@ -77,6 +78,7 @@ dependencies {
     implementation("io.insert-koin:koin-android:4.1.0")
     implementation("io.insert-koin:koin-androidx-compose:4.1.0")
 
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 
     // Problem
 //    implementation("ch.qos.logback:logback-classic:1.5.6")
