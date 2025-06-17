@@ -1,45 +1,47 @@
 package com.example.weather.feature_weather.presenter.screens.weather
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.weather.R
 import com.example.weather.core.presenter.extensions.toPainter
-import com.example.weather.ui.theme.UrbanistFontFamily
+import com.example.weather.feature_weather.presenter.screens.weather.components.AdaptiveWeatherOverview
+import com.example.weather.feature_weather.presenter.screens.weather.components.DailyForecastSection
+import com.example.weather.feature_weather.presenter.screens.weather.components.HeaderView
+import com.example.weather.feature_weather.presenter.screens.weather.components.HourlyForecastSection
+import com.example.weather.feature_weather.presenter.screens.weather.components.WeatherInfoGrid
 import com.example.weather.ui.theme.WeatherTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun WeatherScreen() {
-    WeatherContent()
+fun WeatherScreen(
+    weatherViewModel: WeatherViewModel = koinViewModel()
+) {
+    val state by weatherViewModel.state.collectAsState()
+    WeatherTheme(darkTheme = !state.weatherInfo.currentWeather.isDay) {
+        when {
+            state.isLoading -> LoadingView()
+            state.errorModel.isError -> ErrorView(errorMessage = state.errorModel.exception.message)
+            else -> WeatherContent(state = state)
+        }
+    }
 }
 
 @Composable
 private fun WeatherContent(
+    state: WeatherUiState,
     modifier: Modifier = Modifier,
 ) {
     val scrollState = rememberLazyListState()
@@ -66,19 +68,31 @@ private fun WeatherContent(
             .statusBarsPadding()
     ) {
         item {
-            HeaderView(modifier = Modifier.padding(top = 24.dp))
+            HeaderView(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp))
         }
         item {
-            AdaptiveWeatherOverview(isWeatherAreaScrolledDown = isWeatherAreaScrolledDown)
+            AdaptiveWeatherOverview(
+                isWeatherAreaScrolledDown = isWeatherAreaScrolledDown,
+                temperature = state.weatherInfo.currentWeather.currentTemperature,
+                weatherStatus = state.weatherInfo.currentWeather.weatherState.description,
+                maxTemperature = state.maxTemperature,
+                minTemperature = state.minTemperature,
+                weatherImage = state.weatherImage.toPainter(),
+            )
         }
         item {
-            WeatherInfoGrid()
+            WeatherInfoGrid(weatherInfoItems = state.weatherInfoItems)
         }
         item {
-            HourlyForecastSection()
+            HourlyForecastSection(
+                hourlyWeather = state.weatherInfo.hourlyWeathers
+            )
         }
         item {
-            DailyForecastSection()
+            DailyForecastSection(
+                dailyWeather = state.weatherInfo.dailyWeathers,
+                currentWeather = state.weatherInfo.currentWeather
+            )
         }
     }
 }
@@ -86,8 +100,11 @@ private fun WeatherContent(
 
 @Preview(showSystemUi = true)
 @Composable
-fun WeatherContentPreview() {
+fun WeatherContentPreview(
+    weatherViewModel: WeatherViewModel = koinViewModel()
+) {
+    val state by weatherViewModel.state.collectAsState()
     WeatherTheme(darkTheme = false) {
-        WeatherContent()
+        WeatherContent(state)
     }
 }

@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.implementation
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -68,6 +70,13 @@ dependencies {
 //    implementation("io.ktor:ktor-client-android:3.1.3")
 //    implementation("io.ktor:ktor-client-logging:3.1.3")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.1.3")
+
+
+    implementation(project.dependencies.platform("io.insert-koin:koin-bom:4.1.0"))
+    implementation("io.insert-koin:koin-core")
+    implementation("io.insert-koin:koin-android:4.1.0")
+    implementation("io.insert-koin:koin-androidx-compose:4.1.0")
+
 
     // Problem
 //    implementation("ch.qos.logback:logback-classic:1.5.6")

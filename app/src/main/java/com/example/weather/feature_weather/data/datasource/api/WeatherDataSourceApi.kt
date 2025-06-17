@@ -8,7 +8,7 @@ import com.example.weather.feature_weather.data.datasource.api.api_files.Request
 import com.example.weather.feature_weather.data.model.WeatherInfoDTO
 
 class WeatherDataSourceApi(
-    val requestBuilder: RequestBuilder = RequestBuilder()
+    val requestBuilder: RequestBuilder
 ) : WeatherDatasource {
     override suspend fun getWeather(
         latitude: Double,

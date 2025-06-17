@@ -1,7 +1,5 @@
 package com.example.weather.feature_weather.domain.exception
 
-import android.R.id.message
-
 open class NetworkRequestException(message: String, val statusCode: Int? = null):Exception(message)
 
 class NoInternetException : NetworkRequestException("No internet connection")
