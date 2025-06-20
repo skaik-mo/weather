@@ -68,7 +68,10 @@ private fun WeatherContent(
             .statusBarsPadding()
     ) {
         item {
-            HeaderView(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp))
+            HeaderView(
+                modifier = Modifier.padding(top = 24.dp, bottom = 8.dp),
+                cityName = state.location.cityName
+            )
         }
         item {
             AdaptiveWeatherOverview(

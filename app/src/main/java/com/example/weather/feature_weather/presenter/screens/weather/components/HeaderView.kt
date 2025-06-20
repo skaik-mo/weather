@@ -21,6 +21,7 @@ import com.example.weather.ui.theme.UrbanistFontFamily
 @Composable
 fun HeaderView(
     modifier: Modifier = Modifier,
+    cityName: String,
 ) {
     val colors = MaterialTheme.colorScheme
     Row(
@@ -36,7 +37,7 @@ fun HeaderView(
             modifier = Modifier.size(24.dp)
         )
         Text(
-            text = "Baghdad",
+            text = cityName,
             fontFamily = UrbanistFontFamily,
             fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
