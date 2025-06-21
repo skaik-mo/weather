@@ -1,16 +1,17 @@
-package com.example.weather.feature_weather.data.datasource.api.api_files
+package com.example.weather.feature_weather.data.network
 
 import io.ktor.http.HttpMethod
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
-class BaseRequest {
-    var baseURL: String = ApiConstants.BaseURL.URL
+data class BaseRequest(
+    val baseURL: String
+) {
     var endPoint: String = ""
-    var method: HttpMethod = HttpMethod.Get
+    var method: HttpMethod = HttpMethod.Companion.Get
     var headers: Map<String, String> = emptyMap()
     var parameters: Map<String, Any> = emptyMap()
     var body: Any? = null
-
-    fun baseUrl(url: String) = apply { this.baseURL = url }
 
     fun endpoint(endpoint: String) = apply { this.endPoint = endpoint }
 
@@ -33,11 +34,10 @@ class BaseRequest {
     fun buildFullUrl(): String {
         val fullUrl = if (endPoint.isEmpty()) baseURL else "$baseURL$endPoint"
 
-        return if (parameters.isNotEmpty() && method == HttpMethod.Get) {
-            val queryString = parameters.entries.joinToString("&") { (key, value) ->
-                "$key=$value"
-            }
-            "$fullUrl?$queryString"
+        return if (parameters.isNotEmpty() && method == HttpMethod.Companion.Get) {
+            val query = parameters.map { (k, v) -> "${k.encode()}=${v.toString().encode()}" }
+                .joinToString("&")
+            "$fullUrl?$query"
         } else {
             fullUrl
         }
@@ -48,3 +48,5 @@ class BaseRequest {
                 baseURL.startsWith("http")
     }
 }
+
+private fun String.encode(): String = URLEncoder.encode(this, StandardCharsets.UTF_8.toString())

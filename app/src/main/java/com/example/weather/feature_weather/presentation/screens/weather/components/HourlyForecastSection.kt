@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather.components
+package com.example.weather.feature_weather.presentation.screens.weather.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -23,9 +23,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.weather.core.presenter.extensions.toPainter
-import com.example.weather.feature_weather.domain.model.HourlyWeather
-import com.example.weather.feature_weather.presenter.screens.weather.getWeatherStateImage
+import com.example.weather.core.extensions.toPainter
+import com.example.weather.feature_weather.presentation.model.HourlyWeather
+import com.example.weather.feature_weather.presentation.screens.weather.getWeatherStateImage
 import com.example.weather.ui.theme.UrbanistFontFamily
 
 @Composable

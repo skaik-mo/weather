@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather.components
+package com.example.weather.feature_weather.presentation.screens.weather.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -13,7 +13,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.weather.core.presenter.spacer.vertical.VerticalSpacer12
 import com.example.weather.ui.theme.UrbanistFontFamily
 
 @Composable
@@ -30,9 +29,9 @@ fun CurrentWeatherDetails(
         modifier = modifier
     ) {
         CurrentConditionDisplay(temperature, weatherStatus)
-        VerticalSpacer12()
         TemperatureRangeDisplay(
             modifier = Modifier
+                .padding(top = 12.dp)
                 .background(
                     color = colors.onSurface.copy(0.08f),
                     shape = RoundedCornerShape(100.dp)

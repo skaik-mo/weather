@@ -1,16 +1,16 @@
 package com.example.weather.feature_weather.presentation.screens.weather
 
 import com.example.weather.R
-import com.example.weather.core.presenter.extensions.toLocalDate
-import com.example.weather.feature_weather.domain.model.Location
-import com.example.weather.feature_weather.domain.model.WeatherInfo
+import com.example.weather.core.extensions.toLocalDate
+import com.example.weather.feature_weather.domain.model.weather.value.LocationModel
 import com.example.weather.feature_weather.domain.model.WeatherState
-import com.example.weather.feature_weather.presenter.model.ErrorModel
-import com.example.weather.feature_weather.presenter.model.WeatherInfoItemModel
+import com.example.weather.feature_weather.presentation.model.ErrorModel
+import com.example.weather.feature_weather.presentation.model.WeatherInfo
+import com.example.weather.feature_weather.presentation.model.WeatherInfoItemModel
 import java.time.LocalDate
 
 data class WeatherUiState(
-    val location: Location = Location(),
+    val locationModel: LocationModel = LocationModel(),
     val weatherInfo: WeatherInfo = WeatherInfo(),
     var errorModel: ErrorModel = ErrorModel(),
     var isLoading: Boolean = true,

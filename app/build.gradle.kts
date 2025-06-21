@@ -1,6 +1,3 @@
-import org.gradle.kotlin.dsl.implementation
-import org.jetbrains.kotlin.gradle.idea.proto.com.google.protobuf.SourceCodeInfoKt.location
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)

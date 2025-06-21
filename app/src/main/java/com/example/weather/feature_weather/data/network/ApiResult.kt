@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.data.datasource.api.api_files
+package com.example.weather.feature_weather.data.network
 
 sealed class ApiResult<out T> {
     data class Success<T>(val data: T, val statusCode: Int = 200) : ApiResult<T>()

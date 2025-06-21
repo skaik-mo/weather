@@ -1,6 +1,6 @@
-package com.example.weather.feature_weather.domain.model
+package com.example.weather.feature_weather.domain.model.weather.value
 
-data class Location(
+data class LocationModel(
     val cityName: String,
     val latitude: Double,
     val longitude: Double

@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather.components
+package com.example.weather.feature_weather.presentation.screens.weather.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,12 +20,13 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.weather.core.presenter.extensions.toDayName
-import com.example.weather.core.presenter.extensions.toPainter
-import com.example.weather.feature_weather.domain.model.CurrentWeather
-import com.example.weather.feature_weather.domain.model.DailyWeather
-import com.example.weather.feature_weather.presenter.screens.weather.getWeatherStateImage
+import com.example.weather.core.extensions.toDayName
+import com.example.weather.core.extensions.toPainter
+import com.example.weather.feature_weather.presentation.model.CurrentWeather
+import com.example.weather.feature_weather.presentation.model.DailyWeather
+import com.example.weather.feature_weather.presentation.screens.weather.getWeatherStateImage
 import com.example.weather.ui.theme.UrbanistFontFamily
+import kotlin.collections.forEachIndexed
 
 @Composable
 fun DailyForecastSection(
@@ -80,17 +81,18 @@ private fun DailyForecastItem(
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             letterSpacing = 0.25.sp,
-            color = colors.onSurface.copy(alpha = 0.6f)
+            color = colors.onSurface.copy(alpha = 0.6f),
+            modifier = Modifier.weight(1f)
         )
         Image(
             painter = weatherImage,
             contentDescription = null,
-            modifier = Modifier.height(32.dp)
+            modifier = Modifier.weight(1f).height(32.dp)
         )
         TemperatureRangeDisplay(
             color = colors.onSurface.copy(0.87f),
             maxTemperature = maxTemperature,
-            minTemperature = minTemperature
+            minTemperature = minTemperature,
         )
     }
     if (showDivider)
