@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.domain.model
+package com.example.weather.feature_weather.presentation.model
 
 data class WeatherInfo(
     val currentWeather: CurrentWeather,
@@ -8,6 +8,6 @@ data class WeatherInfo(
     constructor() : this(
         currentWeather = CurrentWeather(),
         hourlyWeathers = emptyList(),
-        dailyWeathers = emptyList(),
+        dailyWeathers= emptyList(),
     )
 }
