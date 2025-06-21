@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather.components
+package com.example.weather.feature_weather.presentation.screens.weather.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.weather.R
-import com.example.weather.core.presenter.extensions.toPainter
+import com.example.weather.core.extensions.toPainter
 
 @Composable
 fun TemperatureRangeDisplay(

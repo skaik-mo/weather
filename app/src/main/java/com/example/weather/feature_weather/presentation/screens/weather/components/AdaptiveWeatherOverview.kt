@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather.components
+package com.example.weather.feature_weather.presentation.screens.weather.components
 
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.updateTransition
@@ -13,8 +13,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
-import com.example.weather.core.presenter.extensions.animatePlacement
-import com.example.weather.core.presenter.extensions.dropShadow
+import com.example.weather.core.extensions.animatePlacement
+import com.example.weather.core.extensions.dropShadow
 import com.example.weather.ui.theme.Color1D2646
 
 @Composable
@@ -44,10 +44,12 @@ fun AdaptiveWeatherOverview(
     ) {
         WeatherOverviewDisplay(
             modifierImage = Modifier
+                .padding(horizontal = 12.dp)
                 .height(imageHeight)
                 .animatePlacement()
                 .align(alignmentImage),
             modifierDetails = Modifier
+                .padding(horizontal = 12.dp)
                 .align(alignmentDetails)
                 .animatePlacement(),
             temperature = temperature,

@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather
+package com.example.weather.feature_weather.presentation.screens.weather
 
 import com.example.weather.R
 import com.example.weather.core.presenter.extensions.toLocalDate

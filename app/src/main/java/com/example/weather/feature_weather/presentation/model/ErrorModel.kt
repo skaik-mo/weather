@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.model
+package com.example.weather.feature_weather.presentation.model
 
 class ErrorModel(
     val isError: Boolean,

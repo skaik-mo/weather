@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather
+package com.example.weather.feature_weather.presentation.screens.weather
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

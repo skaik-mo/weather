@@ -6,8 +6,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.1.20"
-//    alias(libs.plugins.kotlin.serialization)
-
 }
 
 android {
@@ -16,8 +14,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.weather"
-        minSdk = 28
-        targetSdk = 35
+        minSdk = 26
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -44,14 +42,6 @@ android {
         compose = true
     }
 
-//    // Add this packagingOptions block
-//    packagingOptions {
-//        resources {
-//            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-//            excludes += "META-INF/INDEX.LIST"
-//            excludes += "META-INF/DEPENDENCIES"
-//        }
-//    }
 }
 
 dependencies {

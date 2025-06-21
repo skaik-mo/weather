@@ -1,4 +1,4 @@
-package com.example.weather.feature_weather.presenter.screens.weather
+package com.example.weather.feature_weather.presentation.screens.weather
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,12 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.weather.core.presenter.extensions.toPainter
-import com.example.weather.feature_weather.presenter.screens.weather.components.AdaptiveWeatherOverview
-import com.example.weather.feature_weather.presenter.screens.weather.components.DailyForecastSection
-import com.example.weather.feature_weather.presenter.screens.weather.components.HeaderView
-import com.example.weather.feature_weather.presenter.screens.weather.components.HourlyForecastSection
-import com.example.weather.feature_weather.presenter.screens.weather.components.WeatherInfoGrid
+import com.example.weather.core.extensions.toPainter
+import com.example.weather.feature_weather.presentation.screens.weather.components.AdaptiveWeatherOverview
+import com.example.weather.feature_weather.presentation.screens.weather.components.DailyForecastSection
+import com.example.weather.feature_weather.presentation.screens.weather.components.HeaderView
+import com.example.weather.feature_weather.presentation.screens.weather.components.HourlyForecastSection
+import com.example.weather.feature_weather.presentation.screens.weather.components.WeatherInfoGrid
 import com.example.weather.ui.theme.WeatherTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -66,6 +66,7 @@ private fun WeatherContent(
                 )
             )
             .statusBarsPadding()
+            .padding(bottom = 24.dp)
     ) {
         item {
             HeaderView(
