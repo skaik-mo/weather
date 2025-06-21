@@ -1,4 +1,4 @@
-package com.example.weather.core.presenter.extensions
+package com.example.weather.core.extensions
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter

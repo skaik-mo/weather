@@ -1,4 +1,4 @@
-package com.example.weather.core.presenter.extensions
+package com.example.weather.core.extensions
 
 import java.time.LocalDate
 import java.time.LocalDateTime
